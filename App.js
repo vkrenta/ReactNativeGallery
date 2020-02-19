@@ -7,14 +7,9 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {StyleSheet, View, Text} from 'react-native';
 
 import {
   Header,
@@ -23,14 +18,19 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import HomeScreen from './screens/HomeScreen';
+
+const Stack = createStackNavigator();
 
 class App extends React.Component {
   render() {
     return (
       <>
-        <View>
-          <Text>hvdckwbvcghe</Text>
-        </View>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </>
     );
   }
