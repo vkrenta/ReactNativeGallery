@@ -13,7 +13,7 @@ const rows = [
 const extractKey = ({id}) => id;
 
 const renderItem = ({item}) => {
-  return <Item element={item.text} />;
+  return <Item element={item.username} />;
 };
 
 export default class HomeScreen extends React.Component {
@@ -38,14 +38,14 @@ export default class HomeScreen extends React.Component {
         });
         this.setState({picturesData: pictures});
       })
-      .then(() => console.log(this.state));
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
       <View>
         <FlatList
-          data={rows}
+          data={this.state.picturesData}
           renderItem={renderItem}
           keyExtractor={extractKey}
         />
