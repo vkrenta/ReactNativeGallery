@@ -1,6 +1,7 @@
 import React from 'react';
 import {FlatList, View} from 'react-native';
 import Item from './Item';
+import getAllDocuments from '../api';
 
 const rows = [
   {id: 0, text: 'fb.com'},
@@ -11,17 +12,41 @@ const rows = [
 
 const extractKey = ({id}) => id;
 
+const renderItem = ({item}) => {
+  return <Item element={item.text} />;
+};
+
 export default class HomeScreen extends React.Component {
-  renderItem = ({item}) => {
-    return <Item element={item} />;
-  };
+  constructor() {
+    super();
+    this.state = {
+      picturesData: [],
+    };
+  }
+
+  componentDidMount() {
+    getAllDocuments()
+      .then(data => {
+        console.log('--------------------');
+        let pictures = data.map(element => {
+          const {
+            id,
+            urls: {raw, thumb},
+            user: {username},
+          } = element;
+          return {id, raw, thumb, username};
+        });
+        this.setState({picturesData: pictures});
+      })
+      .then(() => console.log(this.state));
+  }
 
   render() {
     return (
       <View>
         <FlatList
           data={rows}
-          renderItem={this.renderItem}
+          renderItem={renderItem}
           keyExtractor={extractKey}
         />
       </View>
