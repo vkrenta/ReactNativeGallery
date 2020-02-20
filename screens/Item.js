@@ -1,28 +1,32 @@
 import React from 'react';
 import {Text, View, Image, StyleSheet} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default class Item extends React.Component {
   render() {
     // return <Text>{this.props.element.username}</Text>;
     return (
-      <View style={styles.list}>
-        <View style={styles.pictureContainer}>
-          <Image
-            style={styles.picture}
-            source={{uri: this.props.element.thumb}}
-          />
-        </View>
+      <TouchableOpacity
+        onPress={() => alert('You pressed me, senpai (///^-^///)')}>
+        <View style={styles.list}>
+          <View style={styles.pictureContainer}>
+            <Image
+              style={styles.picture}
+              source={{uri: this.props.element.thumb}}
+            />
+          </View>
 
-        <View style={styles.info}>
-          <Text>Author: {this.props.element.username}</Text>
-          <Text>
-            Description:{' '}
-            {this.props.element.description ||
-              this.props.element.alt_description ||
-              'no description'}
-          </Text>
+          <View style={styles.info}>
+            <Text on>Author: {this.props.element.username}</Text>
+            <Text>
+              Description:{' '}
+              {this.props.element.description ||
+                this.props.element.alt_description ||
+                'no description'}
+            </Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
