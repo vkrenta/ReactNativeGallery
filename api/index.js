@@ -1,9 +1,6 @@
-const url = 'https://api.unsplash.com/photos/?client_id=';
-const token =
-  'cf49c08b444ff4cb9e4d126b7e9f7513ba1ee58de7906e4360afc1a33d1bf4c0';
-const _urlUser = url + token;
+import {UNSPLASH_URI} from 'react-native-dotenv';
 
-const getAllDocuments = (urlUser = _urlUser) => {
+const getAllDocuments = (urlUser = UNSPLASH_URI) => {
   return fetch(urlUser)
     .then(response => {
       if (response.ok) {
