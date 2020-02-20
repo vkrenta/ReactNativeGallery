@@ -6,7 +6,7 @@ import getAllDocuments from '../api';
 const extractKey = ({id}) => id;
 
 const renderItem = ({item}) => {
-  return <Item element={item.username} />;
+  return <Item element={item} />;
 };
 
 export default class HomeScreen extends React.Component {
