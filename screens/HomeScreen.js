@@ -26,8 +26,10 @@ export default class HomeScreen extends React.Component {
             id,
             urls: {raw, thumb},
             user: {username},
+            description,
+            alt_description,
           } = element;
-          return {id, raw, thumb, username};
+          return {id, raw, thumb, username, description, alt_description};
         });
         this.setState({picturesData: pictures});
       })
