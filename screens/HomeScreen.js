@@ -1,5 +1,6 @@
 import React from 'react';
-import {FlatList, View, Text} from 'react-native';
+import {FlatList, View} from 'react-native';
+import Item from './Item';
 
 const rows = [
   {id: 0, text: 'fb.com'},
@@ -12,8 +13,9 @@ const extractKey = ({id}) => id;
 
 export default class HomeScreen extends React.Component {
   renderItem = ({item}) => {
-    return <Text>{item.text}</Text>;
+    return <Item element={item} />;
   };
+
   render() {
     return (
       <View>
