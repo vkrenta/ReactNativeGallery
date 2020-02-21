@@ -2,12 +2,19 @@ import React from 'react';
 import {Text, View, Image, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
+import {setPictureURL} from '../actions';
+import {useDispatch} from 'react-redux';
 
 export default function Item(props) {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('Photo')}>
+    <TouchableOpacity
+      onPress={() => {
+        dispatch(setPictureURL(props.element.raw));
+        navigation.navigate('Photo');
+      }}>
       <View style={styles.list}>
         <View style={styles.pictureContainer}>
           <Image style={styles.picture} source={{uri: props.element.thumb}} />

@@ -1,4 +1,4 @@
-const picturesReducer = (state = 'no_url', action) => {
+const picturesReducer = (state = '', action) => {
   switch (action.type) {
     case 'SET_PHOTO':
       return action.url;
