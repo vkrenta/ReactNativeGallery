@@ -1,34 +1,30 @@
 import React from 'react';
 import {Text, View, Image, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 
-export default class Item extends React.Component {
-  render() {
-    // return <Text>{this.props.element.username}</Text>;
-    return (
-      <TouchableOpacity
-        onPress={() => alert('You pressed me, senpai (///^-^///)')}>
-        <View style={styles.list}>
-          <View style={styles.pictureContainer}>
-            <Image
-              style={styles.picture}
-              source={{uri: this.props.element.thumb}}
-            />
-          </View>
+export default function Item(props) {
+  const navigation = useNavigation();
 
-          <View style={styles.info}>
-            <Text on>Author: {this.props.element.username}</Text>
-            <Text>
-              Description:{' '}
-              {this.props.element.description ||
-                this.props.element.alt_description ||
-                'no description'}
-            </Text>
-          </View>
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate('Photo')}>
+      <View style={styles.list}>
+        <View style={styles.pictureContainer}>
+          <Image style={styles.picture} source={{uri: props.element.thumb}} />
         </View>
-      </TouchableOpacity>
-    );
-  }
+
+        <View style={styles.info}>
+          <Text on>Author: {props.element.username}</Text>
+          <Text>
+            Description:{' '}
+            {props.element.description ||
+              props.element.alt_description ||
+              'no description'}
+          </Text>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
 }
 
 const styles = StyleSheet.create({

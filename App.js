@@ -19,6 +19,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './screens/HomeScreen';
+import PhotoView from './screens/PhotoView';
 
 const Stack = createStackNavigator();
 
@@ -27,8 +28,9 @@ class App extends React.Component {
     return (
       <>
         <NavigationContainer>
-          <Stack.Navigator>
+          <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Photo" component={PhotoView} />
           </Stack.Navigator>
         </NavigationContainer>
       </>
