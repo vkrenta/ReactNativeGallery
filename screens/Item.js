@@ -14,7 +14,7 @@ export default function Item(props) {
         </View>
 
         <View style={styles.info}>
-          <Text on>Author: {props.element.username}</Text>
+          <Text>Author: {props.element.username}</Text>
           <Text>
             Description:{' '}
             {props.element.description ||
