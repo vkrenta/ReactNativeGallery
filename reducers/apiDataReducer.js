@@ -5,6 +5,7 @@ const apiDataReducer = (state = [], action) => {
       return 'put data triggered';
     default:
       return 'state';
+    //return state
   }
 };
 
