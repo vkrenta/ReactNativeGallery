@@ -1,8 +1,10 @@
 import picturesReducer from './pictures';
+import apiDataReducer from './apiDataReducer';
 import {combineReducers} from 'redux';
 
 const routeReducer = combineReducers({
-  pictureURL: picturesReducer,
+  picture: picturesReducer,
+  apiData: apiDataReducer,
 });
 
 export default routeReducer;

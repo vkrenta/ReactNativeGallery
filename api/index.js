@@ -4,6 +4,7 @@ const getAllDocuments = (urlUser = UNSPLASH_URI) => {
   return fetch(urlUser)
     .then(response => {
       if (response.ok) {
+        response.json().then(r => console.log(r));
         return response.json();
       }
 

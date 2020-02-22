@@ -1,17 +1,14 @@
 import React from 'react';
-import {View, Text, Image, ScrollView} from 'react-native';
+import {Image, ScrollView} from 'react-native';
 import {useSelector} from 'react-redux';
 
 export default function PhotoView() {
-  const pictureURL = useSelector(state => state.pictureURL);
+  const {uri, width, height} = useSelector(state => state.picture);
 
   return (
-    // <View>
-    //   <Text>{pictureURL}</Text>
-    // </View>
     <ScrollView>
       <ScrollView horizontal={true}>
-        <Image source={{uri: pictureURL}} style={{width: 2000, height: 2000}} />
+        <Image source={{uri}} style={{width, height}} />
       </ScrollView>
     </ScrollView>
   );

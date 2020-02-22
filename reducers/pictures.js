@@ -1,7 +1,8 @@
 const picturesReducer = (state = '', action) => {
   switch (action.type) {
     case 'SET_PHOTO':
-      return action.url;
+      const {uri, width, height} = action.payload;
+      return {uri, width, height};
     default:
       return state;
   }

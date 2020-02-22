@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, Image, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
-import {setPictureURL} from '../actions';
+import {setPicture} from '../actions';
 import {useDispatch} from 'react-redux';
 
 export default function Item(props) {
@@ -12,7 +12,13 @@ export default function Item(props) {
   return (
     <TouchableOpacity
       onPress={() => {
-        dispatch(setPictureURL(props.element.raw));
+        dispatch(
+          setPicture({
+            url: props.element.raw,
+            width: props.element.width,
+            height: props.element.height,
+          }),
+        );
         navigation.navigate('Photo');
       }}>
       <View style={styles.list}>
