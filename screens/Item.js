@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {setPicture} from '../actions';
 import {useDispatch} from 'react-redux';
 
-export default function Item(props) {
+const Item = props => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
@@ -38,7 +38,7 @@ export default function Item(props) {
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   picture: {
@@ -57,6 +57,8 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     backgroundColor: 'skyblue',
   },
-  pictureContainer: {width: '25%'},
-  info: {width: '70%'},
+  pictureContainer: {width: 80},
+  info: {width: '73%'},
 });
+
+export default Item;

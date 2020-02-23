@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, ScrollView} from 'react-native';
 import {useSelector} from 'react-redux';
 
-export default function PhotoView() {
+const PhotoView = () => {
   const {uri, width, height} = useSelector(state => state.picture);
 
   return (
@@ -12,4 +12,6 @@ export default function PhotoView() {
       </ScrollView>
     </ScrollView>
   );
-}
+};
+
+export default PhotoView;
