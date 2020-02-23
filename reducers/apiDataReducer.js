@@ -1,11 +1,9 @@
 const apiDataReducer = (state = [], action) => {
   switch (action.type) {
     case 'PUT_DATA':
-      //return action.payload.data;
-      return 'put data triggered';
+      return action.payload.data;
     default:
-      return 'state';
-    //return state
+      return state;
   }
 };
 
