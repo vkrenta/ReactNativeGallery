@@ -14,7 +14,7 @@ export default function Item(props) {
       onPress={() => {
         dispatch(
           setPicture({
-            url: props.element.raw,
+            uri: props.element.raw,
             width: props.element.width,
             height: props.element.height,
           }),

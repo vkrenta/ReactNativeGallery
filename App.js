@@ -23,7 +23,7 @@ const App = () => {
 
   sagaMiddleWare.run(watchLoadData);
 
-  store.subscribe(() => console.log(store.getState()));
+  //store.subscribe(() => console.log(store.getState()));
 
   const Stack = createStackNavigator();
   return (

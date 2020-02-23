@@ -1,6 +1,6 @@
-export const setPicture = (url, width, height) => ({
+export const setPicture = ({uri, width, height}) => ({
   type: 'SET_PHOTO',
-  payload: {url, width, height},
+  payload: {uri, width, height},
 });
 
 export const loadData = () => ({type: 'LOAD_DATA'});
